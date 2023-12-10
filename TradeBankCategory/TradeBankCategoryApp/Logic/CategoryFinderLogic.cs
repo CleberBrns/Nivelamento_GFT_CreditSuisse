@@ -22,7 +22,7 @@ namespace TradeBankCategoryApp.Logic
                 return new PrivateCategoryLogic(Trade.Value).GetRiskCategory();
             }
 
-            return "TradeValueNotMapped";
+            return "TradeRiskNotMapped";
         }
     }
 }

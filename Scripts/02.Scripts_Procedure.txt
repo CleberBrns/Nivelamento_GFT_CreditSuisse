@@ -1,0 +1,43 @@
+CREATE PROCEDURE dbo.uspReturnTradeCaregory @TradeValue real, @ClientSector varchar(100)
+
+AS
+BEGIN
+
+	DECLARE @IdClientSector int,
+			@IdTradeRisk int,
+			@TradeRisk varchar(50),
+			@TradeRiskOutPut varchar(50) OUTPUT
+
+	SET @IdClientSector =
+	(
+		SELECT Id FROM ClientSector WHERE Description = @ClientSector
+	)
+
+	IF (@TradeValue < 1000000 && @ClientSector = 'Public')
+		BEGIN
+		  SET @TradeRisk = 'LOWRISK';
+		END
+	ELSEIF (@TradeValue > 1000000 && @ClientSector = 'Public')
+		BEGIN
+		  SET @TradeRisk = 'MEDIUMRISK';
+		END
+	ELSEIF (@TradeValue > 1000000 && @ClientSector = 'Private')
+		BEGIN
+		  SET @TradeRisk = 'HIGHRISK';
+		END
+		
+	SET @IdTradeRisk =
+	(
+		SELECT Id FROM TradeRisk WHERE Description = @TradeRisk
+	)
+
+	IF (@IdClientSector = 0 OR IdTradeRisk = 0)
+		BEGIN
+		  SET @TradeRisk = 'TradeRiskNotMapped';
+		END
+		
+
+	SELECT @TradeRiskOutPut = @TradeRisk;
+	
+END
+GO

@@ -1,0 +1,24 @@
+CREATE TABLE ClientSector (
+
+	Id int NOT NULL IDENTITY     PRIMARY KEY,
+	Description varchar(100) NOT NULL
+);
+
+INSERT INTO ClientSector
+Description
+VALUES
+("Public"),
+("Private")
+
+CREATE TABLE TradeRisk (
+
+	Id int NOT NULL IDENTITY PRIMARY KEY,
+	Description varchar(50) NOT NULL
+);
+
+INSERT INTO TradeRisk
+Description
+VALUES
+("HIGHRISK"),
+("MEDIUMRISK"),
+("LOWRISK")
