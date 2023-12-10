@@ -43,11 +43,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Entities\ITrade.cs" />
+    <Compile Include="Entities\Trade.cs" />
+    <Compile Include="Logic\CategoryFinderLogic.cs" />
+    <Compile Include="Logic\Interface\IGetRiskCategory.cs" />
+    <Compile Include="Logic\PrivateCategoryLogic.cs" />
+    <Compile Include="Logic\PublicCategoryLogic.cs" />
+    <Compile Include="Logic\TradeCategoryLogic.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
